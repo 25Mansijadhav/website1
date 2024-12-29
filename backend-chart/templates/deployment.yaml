@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mypyth
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: mypyth
+  template:
+    metadata:
+      labels:
+        type: mypyth
+    spec:
+      containers:
+        - name: container1
+          image: mansi0011/mypyth
+          ports:
+            - containerPort: 4000
